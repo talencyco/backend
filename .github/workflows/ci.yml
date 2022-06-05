@@ -48,8 +48,8 @@ jobs:
 #      - name: mvn test
 #        run: $MVN test
       - name: mvn package -DskipTests -Dquarkus.container-image.push=true latest
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: $MVN package -DskipTests -Dquarkus.container-image.push=true -Dquarkus.container-image.image=ghcr.io/talencyco/quarkus:latest '-Dquarkus.jib.labels."org.opencontainers.image.revision"='$GITHUB_SHA
       - name: mvn package -DskipTests -Dquarkus.container-image.push=true snapshot
-        if: github.ref != 'refs/heads/master'
+        if: github.ref != 'refs/heads/main'
         run: $MVN package -DskipTests -Dquarkus.container-image.push=true -Dquarkus.container-image.image=ghcr.io/talencyco/quarkus:snapshot '-Dquarkus.jib.labels."org.opencontainers.image.revision"='$GITHUB_SHA
