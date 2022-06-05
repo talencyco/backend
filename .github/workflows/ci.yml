@@ -45,8 +45,8 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: mvn clean compile
         run: $MVN clean compile
-      - name: mvn test
-        run: $MVN test
+#      - name: mvn test
+#        run: $MVN test
       - name: mvn package -DskipTests -Dquarkus.container-image.push=true latest
         if: github.ref == 'refs/heads/master'
         run: $MVN package -DskipTests -Dquarkus.container-image.push=true -Dquarkus.container-image.image=ghcr.io/talencyco/quarkus:latest '-Dquarkus.jib.labels."org.opencontainers.image.revision"='$GITHUB_SHA
