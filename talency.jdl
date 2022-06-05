@@ -1,0 +1,16 @@
+application {
+  config {
+    packageName com.codingaxis.hr
+    baseName talency
+    applicationType microservice
+    databaseType sql
+  }
+  entities *
+}
+
+entity TlUser{
+ email String required, 
+ mobileNumber String required, 
+ password String required,
+ modificationCounter Integer
+}
