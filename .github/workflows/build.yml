@@ -1,7 +1,7 @@
-name: CI Build
+name: CI Build skipTests
 on: 
   push:
-    branches: [ main ]
+    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,4 +15,4 @@ jobs:
         with:
           java-version: '11'
       - name: Build project with Maven
-        run: mvn install
+        run: mvn install -DskipTests
