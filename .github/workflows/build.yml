@@ -1,7 +1,7 @@
-name: CI Build
+name: CI Build skipTests
 on: 
   push:
-    branches: [ main ]
+    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
