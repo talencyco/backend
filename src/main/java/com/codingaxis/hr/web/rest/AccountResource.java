@@ -17,8 +17,6 @@ import com.codingaxis.hr.service.MailService;
 import com.codingaxis.hr.service.UserService;
 import com.codingaxis.hr.service.dto.UserDTO;
 
-import io.quarkus.security.Authenticated;
-
 /**
  * REST controller for managing the current user's account.
  */
@@ -56,7 +54,6 @@ public class AccountResource {
    */
   @GET
   @Path("/account")
-  @Authenticated
   public UserDTO getAccount(@Context SecurityContext ctx) {
 
     return this.userService.getUserWithAuthoritiesByLogin(ctx.getUserPrincipal().getName()).map(UserDTO::new)
